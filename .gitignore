@@ -39,3 +39,9 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# SQLite database files (local development)
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
