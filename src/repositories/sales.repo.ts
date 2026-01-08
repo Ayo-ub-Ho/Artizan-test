@@ -22,7 +22,7 @@
 import { eq, isNull, sql } from 'drizzle-orm';
 import { getDB, ensureDBReady } from '../db/client';
 import { sales, products, type Sale, type NewSale, type SyncStatus } from '../db/schema';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 
 /**
  * Extended Sale type with product information included.
@@ -52,7 +52,7 @@ export async function createSale(
   const db = getDB();
   
   const newSale: NewSale = {
-    id: uuidv4(),
+    id: uuid.v4() as string,
     ...data,
     sync_status: 'pending',
   };

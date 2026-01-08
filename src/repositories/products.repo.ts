@@ -22,7 +22,7 @@
 import { eq, isNull, sql } from 'drizzle-orm';
 import { getDB, ensureDBReady } from '../db/client';
 import { products, type Product, type NewProduct, type SyncStatus } from '../db/schema';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 
 /**
  * Create a new product in the database.
@@ -40,7 +40,7 @@ export async function createProduct(
   const db = getDB();
   
   const newProduct: NewProduct = {
-    id: uuidv4(),
+    id: uuid.v4() as string,
     ...data,
     sync_status: 'pending',
   };
